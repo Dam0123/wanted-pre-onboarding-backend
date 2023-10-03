@@ -1,0 +1,46 @@
+server:
+  port: 8080
+  servlet:
+    session:
+      cookie:
+        same-site: None
+        secure: true
+      context-path: /
+      encoding:
+        charset: UTF-8
+        force-response: true
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url:  jdbc:mysql://localhost:3306/wantedPre?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: wantedAdmin
+    password: wanted123
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    defer-datasource-initialization: true
+
+  sql:
+    init:
+      data-locations:
+        - classpath*:db/company-data.sql
+        - classpath*:db/user-data.sql
+      encoding: UTF-8
+      mode: always
+
+logging:
+  level:
+    org:
+      springframework:
+        web: DEBUG
+        orm:
+          jpa: DEBUG   #show-sql: true
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+
