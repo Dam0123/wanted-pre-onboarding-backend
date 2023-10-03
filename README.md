@@ -1,29 +1,16 @@
 # wanted-pre-onboarding-backend
-### 요구사항 정리
 
-## ✨  개발환경
-
-### 1) 주요 환경
+## 개발환경
 
 - IntelliJ IDEA (Community)
 - Java 11
 - Gradle 7.6.1
 - Spring Boot 2.7.16
-
-### 2) 활용 기술
-
 - (ORM) JPA
-
-### 3) 데이터베이스
-
 - (RDB) MySQL
-
-### 4) VCS(Version Controller System) & etc
-
 - Git
-- Notion
 
-## 🅲 커밋 메시지 규칙
+## Git commit 메시지 규칙
 
 ### 1) 작성 규칙
 * 작은 단위로 커밋하기
@@ -47,3 +34,20 @@
 | comment  | 필요한 주석 추가 및 변경             |
 | rename   | 파일 혹은 폴더명 수정하거나 옮기는 경우     |
 | remove   | 파일을 삭제하는 작업만 수행하는 경우       |
+
+## ERD
+
+
+## API 명세
+
+
+## 프로젝트 진행 순서
+1) 요구사항 분석
+2) DB 설계
+3) API 명세 작성
+4) 프로젝트 개발환경 세팅
+5) 개발 일정 세우기
+6) API 구현
+7) Unit Test
+8) 문서 정리
+9) 보완할 부분 수정 작업
