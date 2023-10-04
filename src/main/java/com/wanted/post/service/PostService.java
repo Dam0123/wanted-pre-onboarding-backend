@@ -7,9 +7,13 @@ import com.wanted.exception.PostExceptionType;
 import com.wanted.post.domain.Post;
 import com.wanted.post.dto.PostDetailResponse;
 import com.wanted.post.dto.PostIdResponse;
+import com.wanted.post.dto.PostListResponse;
 import com.wanted.post.dto.PostRequest;
 import com.wanted.post.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Slice;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -63,6 +67,12 @@ public class PostService {
     public Post validateExistPost(Long postId) {
         return postRepository.findById(postId)
                 .orElseThrow(() -> new CustomException(PostExceptionType.POST_DOES_NOT_EXIST));
+    }
+
+    //채용공고 목록 조회
+    public Slice<PostListResponse> findPostsAll(String keyword, int page, int size) {
+        PageRequest pageRequest = PageRequest.of(page-1, size, Sort.by("id").descending());
+        return postRepository.findByKeyword(keyword, pageRequest);
     }
 
     //채용공고 상세페이지 조회

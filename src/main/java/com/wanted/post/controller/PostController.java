@@ -1,13 +1,19 @@
 package com.wanted.post.controller;
 
+import com.wanted.post.dto.PostListResponse;
 import com.wanted.post.dto.PostRequest;
+import com.wanted.post.dto.PostSliceResponses;
 import com.wanted.post.service.PostService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Slice;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import javax.validation.constraints.Positive;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequiredArgsConstructor
@@ -39,4 +45,18 @@ public class PostController {
         return ResponseEntity.ok(postService.findPost(postId));
     }
 
+    @GetMapping("/wanted/posts")
+    public ResponseEntity findPostsAll(@Positive @RequestParam("page") int page,
+                                       @Positive @RequestParam("size") int size,
+                                       @RequestParam("keyword") String keyword) {
+
+        Slice<PostListResponse> posts = postService.findPostsAll(keyword, page, size);
+        List<PostListResponse> responses = posts
+                .stream()
+                .map(PostListResponse::of)
+                .collect(Collectors.toList());
+
+        return new ResponseEntity<>(
+                new PostSliceResponses<>(responses, posts), HttpStatus.OK);
+    }
 }
