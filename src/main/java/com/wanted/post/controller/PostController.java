@@ -34,4 +34,9 @@ public class PostController {
         return new ResponseEntity<>("채용공고가 삭제되었습니다.", HttpStatus.OK);
     }
 
+    @GetMapping("/wanted/posts/{postId}")
+    public ResponseEntity findPost(@PathVariable Long postId) {
+        return ResponseEntity.ok(postService.findPost(postId));
+    }
+
 }

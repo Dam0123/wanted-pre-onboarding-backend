@@ -1,14 +1,20 @@
 package com.wanted.post.service;
 
+import com.wanted.company.domain.Company;
 import com.wanted.company.service.CompanyService;
 import com.wanted.exception.CustomException;
 import com.wanted.exception.PostExceptionType;
 import com.wanted.post.domain.Post;
+import com.wanted.post.dto.PostDetailResponse;
+import com.wanted.post.dto.PostIdResponse;
 import com.wanted.post.dto.PostRequest;
 import com.wanted.post.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -59,4 +65,20 @@ public class PostService {
                 .orElseThrow(() -> new CustomException(PostExceptionType.POST_DOES_NOT_EXIST));
     }
 
+    //채용공고 상세페이지 조회
+    public PostDetailResponse findPost(Long postId) {
+        Post post = validateExistPost(postId);
+        List<Long> postIdList = findPostsByCompany(post.getCompany().getId())
+                .stream()
+                .map(PostIdResponse::getPostId)
+                .collect(Collectors.toList());
+
+        return PostDetailResponse.of(post,postIdList);
+    }
+
+    //특정회사의 채용공고 id 목록 조회
+    public List<PostIdResponse> findPostsByCompany(Long companyId) {
+        Company company = companyService.validateExistCompany(companyId);
+        return postRepository.findPostsByCompany(company);
+    }
 }
