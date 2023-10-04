@@ -42,6 +42,18 @@ public class PostService {
     findPost.updatePostInfo(postId, request);
     }
 
+    //채용공고 삭제 기능
+    @Transactional
+    public void removeByPostIdAndCompanyId(Long postId, Long companyId) {
+        Post post = validateExistPost(postId);
+
+        if (!companyId.equals(post.getCompany().getId())) {
+            throw new CustomException(PostExceptionType.UNAUTHORIZED_ACCESS);
+        }
+
+        postRepository.deleteById(postId);
+    }
+
     public Post validateExistPost(Long postId) {
         return postRepository.findById(postId)
                 .orElseThrow(() -> new CustomException(PostExceptionType.POST_DOES_NOT_EXIST));

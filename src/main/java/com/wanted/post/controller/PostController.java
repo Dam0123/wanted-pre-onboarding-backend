@@ -27,4 +27,11 @@ public class PostController {
         return new ResponseEntity<>("채용공고 수정이 완료되었습니다.", HttpStatus.OK);
     }
 
+    @DeleteMapping("/wanted/posts/{postId}")
+    public ResponseEntity removePost(@PathVariable Long postId,
+                                     @RequestParam(value = "companyId") Long companyId) {
+        postService.removeByPostIdAndCompanyId(postId, companyId);
+        return new ResponseEntity<>("채용공고가 삭제되었습니다.", HttpStatus.OK);
+    }
+
 }
