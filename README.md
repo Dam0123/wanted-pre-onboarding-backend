@@ -4,7 +4,7 @@
 
 - IntelliJ IDEA (Community)
 - Java 11
-- Gradle 7.6.1
+- Gradle 8.2.1
 - Spring Boot 2.7.16
 - (ORM) JPA
 - (RDB) MySQL
