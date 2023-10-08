@@ -35,7 +35,7 @@
 | remove   | 파일을 삭제하는 작업만 수행하는 경우       |
 
 ## ERD
-
+![ERD](https://github.com/Dam0123/wanted-pre-onboarding-backend/assets/91379555/f73e7830-0b91-4a55-9cd2-98061c72de51)
 
 ## API 명세
 
