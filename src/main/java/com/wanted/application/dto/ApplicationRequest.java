@@ -13,6 +13,6 @@ public class ApplicationRequest {
 
     @Positive(message = "userId는 1 이상의 양수만 가능합니다.")
     private Long userId;
-    @Positive(message = "userId는 1 이상의 양수만 가능합니다.")
+    @Positive(message = "postId는 1 이상의 양수만 가능합니다.")
     private Long postId;
 }
