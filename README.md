@@ -1,11 +1,12 @@
 # wanted-pre-onboarding-backend
 
-## 개발환경
+## 주요 개발환경
 
 - IntelliJ IDEA (Community)
 - Java 11
 - Gradle 8.2.1
 - Spring Boot 2.7.16
+- QueryDSL
 - (ORM) JPA
 - (RDB) MySQL
 - Git
