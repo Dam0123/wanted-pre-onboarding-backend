@@ -1,16 +1,17 @@
 # wanted-pre-onboarding-backend
 
-## 개발환경
+## 주요 개발환경
 
 - IntelliJ IDEA (Community)
 - Java 11
 - Gradle 8.2.1
 - Spring Boot 2.7.16
+- QueryDSL
 - (ORM) JPA
 - (RDB) MySQL
 - Git
 
-## Git commit 메시지 규칙
+## Git commit 메시지 규칙 & Merge 전략
 
 ### 1) 작성 규칙
 * 작은 단위로 커밋하기
@@ -34,11 +35,61 @@
 | rename   | 파일 혹은 폴더명 수정하거나 옮기는 경우     |
 | remove   | 파일을 삭제하는 작업만 수행하는 경우       |
 
+### 3) Merge 전략
+- Create a Merge Commit
+ <details>
+	<summary>사용 이유</summary>
+  	<div markdown="1">
+      어떤 브랜치에서 어떤 커밋이 진행되어 어떻게 머지가 되었구나 라는 자세한 정보를 얻을 수 있도록 하기 위해서이기도 하고, 너무 많은 빈번한 commit이 이뤄질만한 프로젝트가 아니기 때문에 선택하게 됨.
+  	</div>
+</details>
+
+## GitHub Branch 별 용도
+
+<details>
+	<summary>main</summary>
+  	<div markdown="1">
+      각 "feat/도메인" 의 코드 변경 사항을 main으로 merge 함. 어플리케이션 최종 실행 버전.
+  	</div>
+</details>
+
+<details>
+	<summary>feat/application</summary>
+  	<div markdown="1">
+      지원내역 domain에 해당하는 기능들을 구현하고 해당 브랜치로 commit,push 함. test 코드도 포함.
+  	</div>
+</details>
+
+
+<details>
+	<summary>feat/company</summary>
+  	<div markdown="1">
+      회사 domain에 해당하는 기능들을 구현하고 해당 브랜치로 commit,push 함. test 코드도 포함.
+  	</div>
+</details>
+
+<details>
+	<summary>feat/post</summary>
+  	<div markdown="1">
+      채용공고 domain에 해당하는 기능들을 구현하고 해당 브랜치로 commit,push 함. test 코드도 포함.
+  	</div>
+</details>
+
+<details>
+	<summary>feat/user</summary>
+  	<div markdown="1">
+      사용자 domain에 해당하는 기능들을 구현하고 해당 브랜치로 commit,push 함. test 코드도 포함.
+  	</div>
+</details>
+
+## 기능 요구사항 분석
+[요구사항 분석 확인하기](https://www.notion.so/61f7835acfaf4c0f930dbba1622f2441?v=699c1e37fc024a22a2ab65619d0e9bf2&pvs=4)
+
 ## ERD
+![ERD](https://github.com/Dam0123/wanted-pre-onboarding-backend/assets/91379555/f73e7830-0b91-4a55-9cd2-98061c72de51)
 
-
-## API 명세
-
+## API 명세서
+[API 명세서 확인하기](https://www.notion.so/API-4e96824b5603493c9df80d18f7266ea1?pvs=4)
 
 ## 프로젝트 진행 순서
 1) 요구사항 분석
