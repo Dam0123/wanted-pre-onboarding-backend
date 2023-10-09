@@ -1,6 +1,7 @@
 package com.wanted.post.dto;
 
 import com.querydsl.core.annotations.QueryProjection;
+import com.wanted.post.domain.Post;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -20,6 +21,12 @@ public class PostListResponse {
         return new PostListResponse(post.postId, post.getPosition(),
                 post.getReward(), post.getSkill(), post.companyName,
                 post.getCountry(), post.getRegion());
+    }
+
+    public static PostListResponse of(Post post) {
+        return new PostListResponse(post.getId(), post.getPosition(),
+                post.getReward(), post.getSkill(), post.getCompany().getCompanyName(),
+                post.getCompany().getCountry(), post.getCompany().getRegion());
     }
 
     @QueryProjection
