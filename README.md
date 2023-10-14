@@ -2,6 +2,7 @@
 
 ## 주요 개발환경
 
+---
 - IntelliJ IDEA (Community)
 - Java 11
 - Gradle 8.2.1
@@ -10,9 +11,11 @@
 - (ORM) JPA
 - (RDB) MySQL
 - Git
+- (Documentation) Swagger 3.0
 
 ## Git commit 메시지 규칙 & Merge 전략
 
+---
 ### 1) 작성 규칙
 * 작은 단위로 커밋하기
 * 제목은 최대 50글자 넘지 않기
@@ -46,6 +49,7 @@
 
 ## GitHub Branch 별 용도
 
+---
 <details>
 	<summary>main</summary>
   	<div markdown="1">
@@ -83,15 +87,35 @@
 </details>
 
 ## 기능 요구사항 분석
+
+---
 [요구사항 분석 확인하기](https://www.notion.so/61f7835acfaf4c0f930dbba1622f2441?v=699c1e37fc024a22a2ab65619d0e9bf2&pvs=4)
 
 ## ERD
+
+---
 ![ERD](https://github.com/Dam0123/wanted-pre-onboarding-backend/assets/91379555/f73e7830-0b91-4a55-9cd2-98061c72de51)
 
-## API 명세서
+
+## API 문서
+
+---
+### API 명세서 (Notion)
 [API 명세서 확인하기](https://www.notion.so/API-4e96824b5603493c9df80d18f7266ea1?pvs=4)
 
+### Swagger API 명세서 확인 방법
+
+---
+1. src -> main -> java -> com -> wanted -> 'WantedApplication' 을 실행해주세요.
+2. 웹 브라우저에 'http://localhost:8080/swagger-ui/index.html' 를 입력해주세요.
+3. API 문서 화면이 잘 보인다면, '채용공고 등록 요청' API부터 실행해주세요.
+4. 채용공고가 등록된 상태로 진행해야 다른 API 요청들도 정상적으로 성공할 수 있습니다.
+풀리퀘스트를 보내주세요.
+
+
 ## 프로젝트 진행 순서
+
+---
 1) 요구사항 분석
 2) DB 설계
 3) API 명세 작성
