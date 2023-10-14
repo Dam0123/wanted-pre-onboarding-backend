@@ -94,7 +94,7 @@
 ## ERD
 
 ---
-![ERD](https://github.com/Dam0123/wanted-pre-onboarding-backend/assets/91379555/f73e7830-0b91-4a55-9cd2-98061c72de51)
+![ERD](https://github.com/Dam0123/wanted-pre-onboarding-backend/assets/91379555/c50677c3-afdb-4d61-bd80-09ebf6acfba9)
 
 
 ## API 문서
